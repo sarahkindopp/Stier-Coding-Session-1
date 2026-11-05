@@ -78,7 +78,7 @@ You can also open the whole table in a spreadsheet-style viewer by typing `View(
 
 How many readings are in this dataset? If the Apex records one reading every 10 minutes, roughly how many days does that cover?
 
-**Answer:**
+**Answer** 2123 readings, 14 days
 
 ## Part 3: Ask the data questions
 
@@ -101,18 +101,18 @@ max(tank$temperature)
 What was the average pH? The lowest? The highest? Fill in the blanks, then run the chunk.
 
 ```{r}
-mean(tank$____)
-min(tank$____)
-max(tank$____)
+mean(tank$ph)
+min(tank$ph)
+max(tank$ph)
 ```
 
-**Answer:**
+**Answer** mean: 8.762153, min: 8.63, max: 8.85
 
 ### Question 3
 
 Reef tanks are usually kept between 76 and 80 degrees Fahrenheit. Did our tank ever leave that range?
 
-**Answer:**
+**Answer** no
 
 ## Part 4: Your first plot
 
@@ -140,7 +140,12 @@ ggplot(tank, aes(x = datetime, y = temperature)) +
 **Your turn:** copy the plot above into the chunk below and change it to show pH instead. Remember to update the y-axis label and title too!
 
 ```{r}
-
+ggplot(tank, aes(x = datetime, y = ph)) +
+  geom_line(color = "steelblue") +
+  labs(x = "Date",
+       y = "ph (degrees Fahrenheit)",
+       title = "Stier Lab tank ph") +
+  theme_minimal()
 ```
 
 ## Part 5: Tank detective
@@ -164,7 +169,7 @@ ggplot(tank, aes(x = datetime, y = return_pump_watts)) +
 ### Question 4
 
 What happened to the return pump? Roughly when did it stop and start again?
-
+ 
 **Answer:**
 
 ### Question 5
