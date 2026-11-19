@@ -143,7 +143,7 @@ ggplot(tank, aes(x = datetime, y = temperature)) +
 ggplot(tank, aes(x = datetime, y = ph)) +
   geom_line(color = "steelblue") +
   labs(x = "Date",
-       y = "ph (degrees Fahrenheit)",
+       y = "ph",
        title = "Stier Lab tank ph") +
   theme_minimal()
 ```
@@ -170,7 +170,7 @@ ggplot(tank, aes(x = datetime, y = return_pump_watts)) +
 
 What happened to the return pump? Roughly when did it stop and start again?
  
-**Answer:**
+**Answer:** the return pump shut off between the 21st and the 22nd
 
 ### Question 5
 
@@ -178,12 +178,14 @@ During the outage, the temperature reading slowly dropped. Then, within 10 minut
 
 *Hint: think about where the heater is and where the probe is.*
 
-**Answer:**
+**Answer:** The sump was really cold and then the heater read the tank as being super cold so it turned up the temperature but too much
 
 Now plot `heater_watts` over time. Does it support your explanation?
 
 ```{r}
-
+ggplot(tank, aes(x = datetime, y = heater_watts)) +
+  geom_line() +
+  theme_minimal()
 ```
 
 ### Question 6
